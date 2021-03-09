@@ -1,4 +1,9 @@
 class ProjectsController < ApplicationController
+
+	def show
+		@project_item = Project.find(params[:id])
+	end
+
 	def index
 		@project_items = Project.all
 	end
