@@ -4,6 +4,17 @@ class ProjectsController < ApplicationController
 		@project_item = Project.find(params[:id])
 	end
 
+	def destroy
+		# Perform the lookup
+		@project_item = Project.find(params[:id])
+		# Destroy/Delete the record
+		@project_item.destroy
+		# Redirect
+		respond_to do |format|
+			format.html { redirect_to projects_url, notice: 'Record was removed.'}
+		end
+	end
+
 	def index
 		@project_items = Project.all
 	end
